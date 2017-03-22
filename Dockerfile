@@ -26,7 +26,7 @@ ADD nginx/nginx.conf /etc/nginx/nginx.conf
 CMD service nginx start
 CMD nginx -g "daemon off;"
 #启动 npm 监听程序
-CMD ['npm',' start']
+# CMD ['npm',' start']
 
 EXPOSE 9999
 EXPOSE 80

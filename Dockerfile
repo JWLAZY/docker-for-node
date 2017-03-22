@@ -1,4 +1,4 @@
-FROM daocloud.io/node:7.5.0-onbuild
+FROM daocloud.io/node:7.5.0
 # replace this with your application's default port
 
 

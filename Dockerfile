@@ -1,4 +1,4 @@
-FROM daocloud.io/node:7.5.0
+FROM daocloud.io/node:5
 # replace this with your application's default port
 
 
@@ -7,10 +7,6 @@ FROM daocloud.io/node:7.5.0
 
 MAINTAINER Zheng Jianwen "zhengjianwen@outlook.com"
 
-COPY . /mapp
-WORKDIR /mapp
-
-# RUN npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist install
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak
 ADD config/sources.list /etc/apt/sources.list
@@ -22,11 +18,17 @@ RUN mkdir -p /var/www/html/website
 ADD nginx/global.conf /etc/nginx/conf.d/
 ADD nginx/nginx.conf /etc/nginx/nginx.conf
 
+
 # 启动ngigx
 CMD service nginx start
 CMD nginx -g "daemon off;"
 #启动 npm 监听程序
 # CMD ['npm',' start']
+
+COPY . /mapp
+WORKDIR /mapp
+
+RUN npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist install
 
 EXPOSE 9999
 EXPOSE 80

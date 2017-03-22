@@ -1,4 +1,4 @@
-FROM daocloud.io/node:7.5.0-onbuild
+FROM daocloud.io/node:7.5.0
 # replace this with your application's default port
 
 
@@ -7,10 +7,10 @@ FROM daocloud.io/node:7.5.0-onbuild
 
 MAINTAINER Zheng Jianwen "zhengjianwen@outlook.com"
 
-# COPY . /mapp
-# WORKDIR /mapp
+COPY . /mapp
+WORKDIR /mapp
 
-# RUN npm install
+RUN npm install
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak
 ADD config/sources.list /etc/apt/sources.list
@@ -26,7 +26,7 @@ ADD nginx/nginx.conf /etc/nginx/nginx.conf
 CMD service nginx start
 CMD nginx -g "daemon off;"
 #启动 npm 监听程序
-# CMD npm start
+CMD ['npm',' start']
 
 EXPOSE 9999
 EXPOSE 80

@@ -14,7 +14,7 @@ RUN npm  --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak
 ADD config/sources.list /etc/apt/sources.list
 RUN apt-get update 
-run apt-get install -y --force-yes nginx
+RUN apt-get install -y --force-yes nginx
 
 RUN mkdir -p /var/www/html/website
 
@@ -25,7 +25,7 @@ ADD nginx/nginx.conf /etc/nginx/nginx.conf
 CMD service nginx start
 CMD nginx -g "daemon off;"
 #启动 npm 监听程序
-CMD npm start
+# CMD npm start
 
 EXPOSE 9999
 EXPOSE 80

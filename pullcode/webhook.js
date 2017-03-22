@@ -20,6 +20,7 @@ handler.on('error',err =>{
 
 handler.on('push',event => {
     console.log(event)
+    console.log('开始拉取代码')
     runCommand('sh',['./auto_build.sh'],txt=>{
         console.log(txt)
     })

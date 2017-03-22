@@ -20,8 +20,11 @@ RUN mkdir -p /var/www/html/website
 ADD nginx/global.conf /etc/nginx/conf.d/
 ADD nginx/nginx.conf /etc/nginx/nginx.conf
 
+# 启动ngigx
 CMD service nginx start
 CMD nginx -g "daemon off;"
+#启动 npm 监听程序
+CMD npm start
 
 EXPOSE 9999
 EXPOSE 80

@@ -1,15 +1,15 @@
 FROM daocloud.io/node:7.5.0-onbuild
 # replace this with your application's default port
 
-COPY . /mapp
-WORKDIR /mapp
+# COPY . /mapp
+# WORKDIR /mapp
 # RUN npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist install
 # RUN npm install http-server -g
 
 MAINTAINER Zheng Jianwen "zhengjianwen@outlook.com"
 # ENV REFRESHED_AT 2016-12-05
 RUN cp /etc/apt/source.list /etc/apt/source.list.bak
-ADD /config/source.list /etc/apt/source.list
+ADD config/source.list /etc/apt/source.list
 RUN apt-get -y update && apt-get install -y nginx
 RUN mkdir -p /var/www/html/website
 ADD nginx/global.conf /etc/nginx/conf.d/

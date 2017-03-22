@@ -1,12 +1,13 @@
 const http = require('http')
 const createHandler = require('coding-webhook-handler')
 
-const  handler = createHandler({
+const handler = createHandler({
     path:'/coding/push',
     token:'fe'
 })
 
 http.createServer((req,res)=>{
+    console.log(req.url);
     handler(req,res,function(error){
         res.statusCode = 404
         res.end('no such location')

@@ -14,8 +14,8 @@ ADD nginx/global.conf /etc/nginx/conf.d/
 ADD nginx/nginx.conf /etc/nginx/nginx.conf
 
 # RUN nginx -g "daemon off;"
-
-CMD ["nginx", "-g","daemon off;"]
+CMD service nginx start
+CMD nginx -g "daemon off;"
 
 EXPOSE 80
 

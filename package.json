@@ -7,7 +7,7 @@
     "npm": "3.5.3"
   },
   "scripts": {
-    "start": "http-server"
+    "start": "echo 'test'"
   },
   "dependencies": {
     "crypto": "0.0.3"

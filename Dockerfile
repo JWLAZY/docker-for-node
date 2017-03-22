@@ -7,10 +7,10 @@ FROM daocloud.io/node:7.5.0-onbuild
 
 MAINTAINER Zheng Jianwen "zhengjianwen@outlook.com"
 
-COPY . /mapp
-WORKDIR /mapp
+# COPY . /mapp
+# WORKDIR /mapp
 
-RUN npm install
+# RUN npm install
 
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak
 ADD config/sources.list /etc/apt/sources.list

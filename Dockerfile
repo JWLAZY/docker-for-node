@@ -28,7 +28,7 @@ ADD nginx/nginx.conf /etc/nginx/nginx.conf
 # CMD ['npm',' start']
 
 RUN npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist install
-CMD ["npm","start"]
+CMD ["sh","init.sh"]
 EXPOSE 9999
 EXPOSE 80
 

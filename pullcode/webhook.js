@@ -8,6 +8,9 @@ const handler = createHandler({
 
 http.createServer((req,res)=>{
     console.log(req.url);
+    runCommand('sh',['./auto_build.sh'],txt=>{
+        console.log(txt)
+    })
     handler(req,res,function(error){
         res.statusCode = 404
         res.end('no such location')

@@ -7,10 +7,9 @@
     "npm": "3.5.3"
   },
   "scripts": {
-    "start": "node pullcode/webhook.js"
+    "ci": "node pullcode/webhook.js"
   },
   "dependencies": {
-    "crypto": "0.0.3",
     "coding-webhook-handler":"0.6.1"
   }
 }

@@ -24,7 +24,7 @@ RUN apt-get install -y --force-yes nginx
 RUN mkdir -p /var/www/html/website
 
 RUN mkdir -p /var/www/src/fe
-RUN git clone git@git.coding.net:lesscode/share-fe.git /var/www/src/fe
+# RUN git clone git@git.coding.net:lesscode/share-fe.git /var/www/src/fe
 # RUN mkdir -p /var/www/src/admin
 # RUN git clone git@git.coding.net:lesscode/share-admin.git /var/www/src/admin
 

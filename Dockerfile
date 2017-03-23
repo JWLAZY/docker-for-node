@@ -18,7 +18,8 @@ WORKDIR /mapp
 # RUN ssh-keygen -R coding.net
 # RUN echo 221.193.246.64 git.coding.net >> /etc/hosts
 # ADD config/id_rsa_p /root/.ssh
-RUN git clone git@git.coding.net:yiqifenxiang/share-api.git /var/www/src/fe
+RUN git submodule add git@git.coding.net:yiqifenxiang/share-api.git
+# RUN git clone git@git.coding.net:yiqifenxiang/share-api.git /var/www/src/fe
 # RUN git clone git@github.com:Jianwen-Zheng/docker-for-node.git ./index/t
 # RUN exec ssh-agent bash && ssh-add config/id_rsa_docker
 # RUN eval `ssh-agent -s`

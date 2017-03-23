@@ -10,8 +10,8 @@ MAINTAINER Zheng Jianwen "zhengjianwen@outlook.com"
 COPY . /mapp
 WORKDIR /mapp
 
-ADD config/id_rsa_p /root/.ssh
-RUN exec ssh-agent bash && ssh-add config/id_rsa_docker
+# ADD config/id_rsa_p /root/.ssh
+# RUN exec ssh-agent bash && ssh-add config/id_rsa_docker
 # RUN eval `ssh-agent -s`
 
 # RUN ssh-add /root/.ssh/id_rsa_p
@@ -23,15 +23,17 @@ RUN apt-get install -y --force-yes nginx
 
 RUN mkdir -p /var/www/html/website
 
-# RUN mkdir -p /var/www/src/fe
-# RUN git clone git@git.coding.net:lesscode/share-fe.git /var/www/src/fe
+RUN mkdir -p /var/www/src/fe
+RUN git clone git@git.coding.net:lesscode/share-fe.git /var/www/src/fe
 # RUN mkdir -p /var/www/src/admin
 # RUN git clone git@git.coding.net:lesscode/share-admin.git /var/www/src/admin
 
 ADD nginx/global.conf /etc/nginx/conf.d/
 ADD nginx/nginx.conf /etc/nginx/nginx.conf
+ADD nginx/g2.conf /etc/nginx/g2.confs
 
 RUN npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist install
 CMD ["sh","init.sh"]
 EXPOSE 9999
-EXPOSE 80
+EXPOSE 81
+EXPOSE 82
